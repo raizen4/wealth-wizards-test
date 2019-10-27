@@ -1,0 +1,3 @@
+export const actionTypes = {
+    UPDATE_CONTRIBUTION_DIFF: "UPDATE_CONTRIBUTION_DIFF"
+}
