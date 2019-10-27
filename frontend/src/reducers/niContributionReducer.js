@@ -2,7 +2,7 @@ import { actionTypes } from '../constants'
 const R = require('ramda')
 
 let initialState = {
-    niContributionDiff: 0
+    history: []
 }
 
 const niContributionDiff = (state = initialState, action) => {
@@ -10,7 +10,8 @@ const niContributionDiff = (state = initialState, action) => {
         case actionTypes.UPDATE_CONTRIBUTION_DIFF:
             return {
                 ...state,
-                niContributionDiff: action.payload
+                history: R.append(action.payload, history)
             }
+
     }
 }
