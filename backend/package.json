@@ -10,7 +10,7 @@
     "start": "node src/index.js",
     "watch": "nodemon --ignore src/app --watch src",
     "build": "rimraf dist && webpack --config ./webpack.config.js --hide-modules --bail",
-    "watch:build": "NODE_ENV=development yarn build",
+    "watch:build": "Set NODE_ENV=development yarn build",
     "dev": "parallelshell \"yarn watch\" \"yarn watch:build\"",
     "lint": "eslint src",
     "test": "nodemon -q -x 'yarn test:unit --silent'",

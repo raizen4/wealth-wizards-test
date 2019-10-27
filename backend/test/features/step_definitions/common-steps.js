@@ -17,29 +17,31 @@ const taxYearLookup = {
 
 Given(/^that the current tax year is (.*)$/,
   function process(taxYear) {
+    console.log(moment.utc(taxYearLookup[taxYear]).toDate());
     tk.freeze(moment.utc(taxYearLookup[taxYear]).toDate());
   });
 
 Given(/^that the tax year is (.*)$/,
   function process(taxYear) {
     this.taxYear = taxYearLookup[taxYear];
+    console.log(this.taxYear);
   });
 
 Given(/^that I have a monthly income of £(.*)$/,
   function process(income) {
     this.income = income;
-});
+  });
 
 When(/^calculating my ni deductions$/,
   async function process() {
     this.state.response = await
       this.supertest(this.expressInstance)
         .post('/v1/national-insurance')
-        .set(this.taxYear ? { 'x-run-date': this.taxYear } : {})
         .send({
+          date: this.taxYear,
           income: this.income,
         });
-});
+  });
 
 Then(/^I should be liable to pay £(.*) in class 1 national insurance contributions$/,
   function process(expected) {

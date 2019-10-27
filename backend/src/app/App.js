@@ -7,10 +7,10 @@ const App = ({ store }) =>
   <Provider store={store}>
     <p
       css={css`
-        font-size: 100px;
+        font-size: 50px;
       `}
     >
-      Your app here
+      Your app here mothefuckerdasdass
     </p>
   </Provider>;
 

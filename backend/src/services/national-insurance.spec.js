@@ -87,8 +87,9 @@ test('national-insurance', (t) => {
   ].forEach(([grossIncome, expectedNi, message]) => {
     t.test(message, (assert) => {
       assert.plan(1);
+
       const actual = target(RUNDATE)(grossIncome);
-      assert.equals(actual.toFixed(2), expectedNi, message);
+      assert.equal(actual.toFixed(2), expectedNi, message);
     });
   });
 });
@@ -143,13 +144,11 @@ test('national-insurance.slice', (t) => {
   ].forEach(([floor, ceil, input, expected, message]) => {
     t.test(message, (assert) => {
       assert.plan(1);
-
       const actual = target.slice(
-        RD.decimal(floor),
-        RD.decimal(ceil),
-      )(RD.decimal(input));
-
-      assert.deepEquals(actual, RD.decimal(expected));
+        floor,
+        ceil,
+      )(input);
+      assert.deepEquals(actual.toFixed(2), expected.toFixed(2));
     });
   });
 });
