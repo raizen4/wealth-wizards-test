@@ -1,3 +1,5 @@
+# Notes: I began working on this test on friday afternoon but without knowing any ramda. So practically, I began working towards resolving the tasks yesterday evening. All should be ready for Monday morning
+
 # ww-code-test
 
 In this test you will find a wide cross section of the type of code you will be exposed to at Wealth Wizards.
