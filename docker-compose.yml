@@ -8,9 +8,22 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - './frontend/:/app'
+      - './frontend:/app'
       - '/app/node_modules'
     ports:
       - '3000:3000'
     environment:
       - NODE_ENV=development
+  backend:
+    container_name: Backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - './backend:/app'
+      - '/app/node_modules'
+    ports:
+      - '4040:4040'
+    environment:
+      - NODE_ENV=development
+  
