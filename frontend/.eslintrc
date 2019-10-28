@@ -8,7 +8,7 @@
     "ecmaFeatures": {
       "classes": true,
       "experimentalObjectRestSpread": true
-    }
+     
   },
   "rules": {
     "new-cap": "off",
