@@ -16,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2><p>React-redux NI difference contribution calculator for 2018/2019 and 2019/2020</p></h2>
+        <div className="row"><h2><p>React-redux NI difference contribution calculator for 2018/2019 and 2019/2020</p></h2></div>
+        <div className="row">
         <Card style={{ width: '77vh', color: 'black' }}>
           <Card.Body>
             <Card.Text>
@@ -27,7 +28,8 @@ function App() {
           </Card.Body>
         </Card>
           {difference !== -1 ? <p>You paid in 2018/2019 £{niPaidIn2018} whilst in 2019/2020 you will pay £{niPaidin2019}. 
-          This means that the difference is £{difference} pounds </p> : '' }
+          This means that the difference is £{difference} pounds </p> : '' } 
+          </div>
       </header>
     </div>
   );
