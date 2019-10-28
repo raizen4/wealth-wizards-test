@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
   if (!R.has('income', req.body)) {
     return next(new Error('No income provided in request body'));
   }
+  //added this part here
   if (!R.has('date', req.body)) {
     date = '2019-04-06';
   }
@@ -18,6 +19,8 @@ module.exports = (req, res, next) => {
     }
 
     req.income = income;
+
+    //and this
     req.date = date;
     return next();
   } catch (e) {

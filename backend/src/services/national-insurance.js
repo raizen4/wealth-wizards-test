@@ -25,7 +25,7 @@ const bandsOnDate = (date) => {
 };
 
 
-// TODO this should do more than return the number it's given
+// TODO this should do more than return the number it's given- added this part for A
 // eslint-disable-next-line consistent-return
 const slice = R.curry((floor, ceiling, income) => {
   if (income <= floor) {

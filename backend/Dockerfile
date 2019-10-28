@@ -8,12 +8,8 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json ./package.json
-COPY . .
+COPY package.json /app/package.json
+RUN npm install --silent
 
-RUN npm install 
-EXPOSE 3000
 # start app
-RUN ls 
-RUN pwd
-CMD ["npm", "start"]
+CMD ["yarn", "dev"]
