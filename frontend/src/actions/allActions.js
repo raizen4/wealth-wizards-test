@@ -5,7 +5,7 @@ const R = require('ramda')
 
 const calculateDifference = (currentYearContribution, selectedYearContribution) => {
     return (dispatch, getState) => {
-        const difference = Math.abs(currentYearContribution - selectedYearContribution)
+        const difference = Math.abs(currentYearContribution - selectedYearContribution).toFixed(2)
         dispatch(updateNiDiff(difference))
     }
 }
@@ -31,7 +31,7 @@ const updateNiPaidIn2018 = niPaid => {
 
 const updateNiDiff = diff => {
     return {
-        type: actionTypes.UPDATE_NI_PAID_IN2018,
+        type: actionTypes.UPDATE_DIFFERENCE,
         payload: diff
     }
 }
@@ -54,7 +54,7 @@ export const asyncGetDifferenceInContribution = (income) => {
         dispatch(updateNiPaidIn2019(currentYearNi.ni))
         const previousYearNi = await asyncGetContributionForYear('2018-10-27', income)
         dispatch(updateNiPaidIn2018(previousYearNi.ni))
-        calculateDifference(currentYearNi, previousYearNi)
+        dispatch(calculateDifference(currentYearNi.ni, previousYearNi.ni))
 
     }
 }
