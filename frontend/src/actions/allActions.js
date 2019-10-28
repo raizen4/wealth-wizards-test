@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
 import { actionTypes } from '../constants'
 import axios from 'axios'
-const R = require('ramda')
 
 const calculateDifference = (currentYearContribution, selectedYearContribution) => {
     return (dispatch, getState) => {
