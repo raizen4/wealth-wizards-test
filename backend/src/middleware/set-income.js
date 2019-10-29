@@ -14,16 +14,17 @@ module.exports = (req, res, next) => {
   try {
     income = RD.decimal(req.body.income);
     date = req.body.date;
+
     if (income.isNaN()) {
       return next(new Error('Income provided is NaN'));
     }
 
     req.income = income;
-
     //and this
     req.date = date;
+
     return next();
   } catch (e) {
-    return next(new Error('Income provided is an invalid number'));
+    return next(new Error('Income/date provided is an invalid number'));
   }
 };

@@ -14,12 +14,14 @@ export const updateGrossIncomeAction = newGrossIncome => {
         payload: newGrossIncome
     }
 }
+
 const updateNiPaidIn2019 = niPaid => {
     return {
         type: actionTypes.UPDATE_NI_PAID_IN2019,
         payload: niPaid
     }
 }
+
 const updateNiPaidIn2018 = niPaid => {
     return {
         type: actionTypes.UPDATE_NI_PAID_IN2018,
@@ -33,6 +35,7 @@ const updateNiDiff = diff => {
         payload: diff
     }
 }
+
 const asyncGetContributionForYear = async (currentDate, grossIncome) => {
     try {
         console.log(currentDate, grossIncome)
