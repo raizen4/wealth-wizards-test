@@ -1,22 +1,29 @@
-version: '2'
+version: '3.7'
+
 services:
-  node:
-    image: node:10.16.0-alpine
+
+  front:
+    container_name: FrontEnd
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     volumes:
-      - .:/usr/src/app:z
-    working_dir: /usr/src/app
-
-  yarn:
-    extends:
-      service: node
-    entrypoint: yarn
-
-  dev:
-    extends:
-      service: yarn
-    command: dev
+      - './frontend:/app'
+      - '/app/node_modules'
     ports:
-      - "8080:80"
+      - '3000:3000'
     environment:
-      - PORT=80
       - NODE_ENV=development
+  backend:
+    container_name: Backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - './backend:/app'
+      - '/app/node_modules'
+    ports:
+      - '4040:4040'
+    environment:
+      - NODE_ENV=development
+  

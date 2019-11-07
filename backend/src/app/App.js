@@ -7,10 +7,12 @@ const App = ({ store }) =>
   <Provider store={store}>
     <p
       css={css`
-        font-size: 100px;
+        font-size: 50px;
       `}
     >
-      Your app here
+      Seems like I couldn't make the front-end app start with hot reload using the template provided 
+      so I instead to be able to debug easier I have created a new front-end whilst the template provided is used as
+      backend and I create a new docker-compose file to make things easier.
     </p>
   </Provider>;
 
